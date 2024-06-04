@@ -1,4 +1,6 @@
-This is a Node.js application that uses the Express.js framework to create a web server. It also uses the Azure AI Content Safety service to analyze text for potentially unsafe content. Here’s a breakdown of what the code does:
+# File name index2.js
+
+* This is a Node.js application that uses the Express.js framework to create a web server. It also uses the Azure AI Content Safety service to analyze text for potentially unsafe content. Here’s a breakdown of what the code does:
 
 Imports Required Modules: The application imports necessary modules such as express for creating the server, @azure-rest/ai-content-safety for content safety analysis, and @azure/core-auth for authentication.
 
