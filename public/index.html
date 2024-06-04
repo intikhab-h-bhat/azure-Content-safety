@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Safety Analyzer</title>
+</head>
+<body>
+    <h1>Content Safety Analyzer</h1>
+    <form id="contentForm">
+        <label for="content">Enter your content:</label><br>
+        <textarea id="content" name="content" rows="4" cols="50"></textarea><br>
+        <button type="submit">Check Safety</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        const form = document.getElementById('contentForm');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const content = document.getElementById('content').value;
+            
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: content })
+                });
+
+                const data = await response.json();
+                 
+                if (data.success) {
+                  resultDiv.innerHTML = data.categoriesAnalysis.map(category => `
+                        <p>${category.category} severity: ${category.severity}</p>
+                    `).join('');
+                } else {
+                    resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+            }
+        });
+    </script>
+    <!-- <script src="../index2.js"></script> -->
+</body>
+</html>
