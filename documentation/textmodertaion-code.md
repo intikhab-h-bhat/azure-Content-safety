@@ -67,7 +67,7 @@
 
 ## output
 
-Hate severity:  2
-SelfHarm severity:  0
-Sexual severity:  0
-Violence severity:  0
+1. Hate severity:  2
+2. SelfHarm severity:  0
+3. Sexual severity:  0
+4. Violence severity:  0
