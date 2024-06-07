@@ -17,26 +17,26 @@
   ```JavaScript
   const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
   { isUnexpected } = require("@azure-rest/ai-content-safety");
-const { AzureKeyCredential } = require("@azure/core-auth");
-// Load the .env file if it exists
-require("dotenv").config();
-const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] 
-const key = process.env["CONTENT_SAFETY_API_KEY"] 
+ const { AzureKeyCredential } = require("@azure/core-auth");
+ // Load the .env file if it exists
+ require("dotenv").config();
+ const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"] 
+ const key = process.env["CONTENT_SAFETY_API_KEY"] 
 
 
-const credential = new AzureKeyCredential(key);
-const client = ContentSafetyClient(endpoint, credential);
+ const credential = new AzureKeyCredential(key);
+ const client = ContentSafetyClient(endpoint, credential);
 
 
-const text = "hate you";
-const analyzeTextOption = { text: text };
-const analyzeTextParameters= {
+ const text = "hate you";
+ const analyzeTextOption = { text: text };
+ const analyzeTextParameters= {
      body: analyzeTextOption
    
    };
 
 
-async function someFunction() {
+ async function someFunction() {
  const result = await client.path("/text:analyze").post(analyzeTextParameters);
 
 
@@ -66,5 +66,12 @@ console.log("Violence severity: ", result.body.categoriesAnalysis.find(item => i
 // Call the function
 someFunction();
   ```
-  
+* Run the application with the node command  **node text-mod.js**
+
+## output
+
+Hate severity:  2
+SelfHarm severity:  0
+Sexual severity:  0
+Violence severity:  0
 
