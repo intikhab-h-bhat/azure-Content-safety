@@ -1,6 +1,7 @@
 # Text Moderation API using JavaScript  (Azure ContentSafety API)
    Azure AI content safety detects harmful user-generated and AI-generated content in applications and services. It includes text and image APIs that allow you to detect harmful or inappropriate material.
-**Text Moderation:** Detects and filters out harmful content in text, such as hate speech, violence, or inappropriate language.
+   
+   **Text Moderation:** Detects and filters out harmful content in text, such as hate speech, violence, or inappropriate language.   
 
 ## Prerequisite
 * Azure subscription
