@@ -1,5 +1,5 @@
 # Prerequisite
-
+* Azure subscription
 * nodejs
 * Text Editor
 
