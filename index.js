@@ -8,7 +8,7 @@
 // const document = dom.window.document;
 
 
-const express = require('express');
+
 const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,
   { isUnexpected } = require("@azure-rest/ai-content-safety");
 const { AzureKeyCredential } = require("@azure/core-auth");
