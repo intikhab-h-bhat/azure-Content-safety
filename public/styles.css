@@ -1,6 +1,12 @@
 body{
     background-color: lightblue;
     text-align: center;
+    padding: 2px;
+}
+#content{
+    padding: 2px;
+    margin-top: 3px;
+    width: 400px;
 }
 
 p{
@@ -10,14 +16,14 @@ p{
     border-color: black;
    
 }
-#tbl{
-    width: 100%;
-}
-#tbldetails{
-    width: 100%;
-   
-}
 #result{
     background-color: aliceblue;
    
+}
+#btnSubmit{
+    background-color:navy;
+    color: beige;
+    height: 40px;
+    width: 400px;
+    font-size: large;
 }
