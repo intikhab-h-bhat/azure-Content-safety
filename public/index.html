@@ -13,7 +13,13 @@
         <textarea id="content" name="content" rows="4" cols="50"></textarea><br>
         <button type="submit">Check Safety</button>
     </form>
-    <div id="result"></div>
+    <p>
+        Category Severity
+    </p>
+
+    <div id="result">
+        
+    </div>
 
     <script>
         const form = document.getElementById('contentForm');
@@ -35,8 +41,11 @@
                 const data = await response.json();
                  
                 if (data.success) {
+                  
                   resultDiv.innerHTML = data.categoriesAnalysis.map(category => `
-                        <p>${category.category} severity: ${category.severity}</p>
+                   
+                       <p> ${category.category} ${category.severity}</p>
+                      
                     `).join('');
                 } else {
                     resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;

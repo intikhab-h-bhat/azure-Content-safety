@@ -30,7 +30,7 @@ app.post('/analyze', async (req, res) => {
     const analyzeTextParameters = { body: analyzeTextOption };
 
     const result = await client.path("/text:analyze").post(analyzeTextParameters);
-    console.log(result.status,"Helloooo")
+    // console.log(result.status,"Helloooo")
     if (result.status === '200') {
         const categoriesAnalysis = result.body.categoriesAnalysis.map(category => ({
             category: category.category,

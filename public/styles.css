@@ -2,3 +2,22 @@ body{
     background-color: lightblue;
     text-align: center;
 }
+
+p{
+    text-align: center;
+    word-spacing:300px;
+    border:2px;
+    border-color: black;
+   
+}
+#tbl{
+    width: 100%;
+}
+#tbldetails{
+    width: 100%;
+   
+}
+#result{
+    background-color: aliceblue;
+   
+}
