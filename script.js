@@ -1,10 +1,10 @@
 async function analyzeText() {
     const text = document.getElementById('textInput').value;
 
-    const apiKey = "Key"
+    const apiKey = "key"
     //const endpoint = 'https://<your-region>.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessText/Screen?classify=true';
     //const endpoint = 'https://eastus.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessText/Screen?classify=true';
-    const endpoint ="Endpoint"
+    const endpoint ="endpoint"
    
     // const response = await fetch(endpoint + '/analyze', {
     //     method: 'POST',
@@ -18,7 +18,7 @@ async function analyzeText() {
     const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
-            'Content-Type': 'text/plain',
+            'Content-Type': 'text/analyze',
             'Ocp-Apim-Subscription-Key': apiKey
         },
         body: text
