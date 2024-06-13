@@ -1,2 +1,2 @@
 # azure-Content-safety
-Text moderation in Azure Content Safety
+Text moderation using Azure Content Safety API
