@@ -1,10 +1,10 @@
 async function analyzeText() {
     const text = document.getElementById('textInput').value;
 
-    const apiKey = '8cedaabd384d43f3af735f1e1d66a5ac';
+    const apiKey = "Key"
     //const endpoint = 'https://<your-region>.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessText/Screen?classify=true';
     //const endpoint = 'https://eastus.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessText/Screen?classify=true';
-    const endpoint ='https://textguardian.cognitiveservices.azure.com/contentmoderator/moderate/v1.0/ProcessText/Screen?classify=true';
+    const endpoint ="Endpoint"
    
     // const response = await fetch(endpoint + '/analyze', {
     //     method: 'POST',
