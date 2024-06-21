@@ -22,6 +22,7 @@ app.post('/analyze', async (req, res) => {
     // get endpoint and key from environment variables
     const endpoint = process.env["CONTENT_SAFETY_ENDPOINT"];
     const key = process.env["CONTENT_SAFETY_KEY"];
+    const OpenAikey = process.env["CONTENT_OPENAI_KEY"];
     
     const credential = new AzureKeyCredential(key);
     const client = new ContentSafetyClient(endpoint, credential);
@@ -39,9 +40,9 @@ app.post('/analyze', async (req, res) => {
         }));
         res.json({ success: true, categoriesAnalysis });
        
-        for (severity of categoriesAnalysis) {
-            // console.log("Severity: ",severity.severity);
-            if(severity.severity > 0)
+        for (catseverity of categoriesAnalysis) {
+            // console.log("Severity: ",catseverity.severity);
+            if(catseverity.severity > 0)
                 {
                     console.log("Inapporiate Data")
                 }
