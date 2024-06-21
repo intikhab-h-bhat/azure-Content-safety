@@ -3,32 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moderate Text Content</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Content Safety Analyzer</title>
 </head>
 <body>
-    <h1>Moderate Text Content</h1>
+    <h1>Content Safety Analyzer</h1>
     <form id="contentForm">
-        <label for="content" style="font: 1em sans-serif; padding: 2px;">Enter Your Text:</label><br>
-        <textarea id="content" name="content" rows="10" cols="50"></textarea><br>
-        <button type="submit" id="btnSubmit">Run Test</button>
+        <label for="content">Enter your content:</label><br>
+        <textarea id="content" name="content" rows="4" cols="50"></textarea><br>
+        <button type="submit">Check Safety</button>
     </form>
-    <p style="font-size: large; border: 2px;" >
-        Category Severity
-    </p>
-
-    <div id="result">
-        
-    </div>
-
+    <div id="result"></div>
     <script>
         const form = document.getElementById('contentForm');
         const resultDiv = document.getElementById('result');
-
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
             const content = document.getElementById('content').value;
-            
             try {
                 const response = await fetch('/analyze', {
                     method: 'POST',
@@ -37,23 +27,10 @@
                     },
                     body: JSON.stringify({ text: content })
                 });
-
                 const data = await response.json();
-
-                               
                 if (data.success) {
-                  
-// if(data.categoriesAnalysis.find(item => item.category === 'Hate')?.severity >0){
-//     console.log("Not appropriate data")
-// }
-// console.log("SelfHarm severity: ",data.categoriesAnalysis.find(item => item.category === 'SelfHarm')?.severity);
-// console.log("Sexual severity: ", data.categoriesAnalysis.find(item => item.category === 'Sexual')?.severity);
-// console.log("Violence severity: ", data.categoriesAnalysis.find(item => item.category === 'Violence')?.severity);
-
                   resultDiv.innerHTML = data.categoriesAnalysis.map(category => `
-                   
-                       <p> ${category.category} ${category.severity}</p>
-                      
+                        <p>${category.category} severity: ${category.severity}</p>
                     `).join('');
                 } else {
                     resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;
@@ -64,6 +41,6 @@
             }
         });
     </script>
-
+    <!-- <script src="../index2.js"></script> -->
 </body>
 </html>
